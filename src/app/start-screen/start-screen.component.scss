@@ -1,0 +1,35 @@
+.start-screen{
+    min-height:100vH;
+    min-width:100vW;
+    max-width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    >img{
+        height:100vH;
+    }
+}
+.title-and-start-button{
+    position: absolute;
+    left:0;
+    top:0;
+    width:100vW;
+    height:100vH;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:20px;
+    >p{
+        color:orange;
+    }
+    >button{
+        color:orange;
+        border-color: orange;
+        background-color: black;
+        &:hover{
+            background-color: beige;
+        }
+    }
+}

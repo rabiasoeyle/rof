@@ -1,1 +1,24 @@
-<p>game works!</p>
+<app-player *ngFor="let player of game.players; let i = index" class="player-position" [name]="player" [ngStyle]="{'top.px': 100+(i *50)}" [playerActive]="i == game.currentPlayer" >
+
+</app-player>
+
+<div class="field">
+    <div class="card-stack">
+        @for(item of [0,1,2,3,4]; track item; let i= $index){
+            <img [ngStyle]="{'right.px': i *5}" src="assets/img/cards/card_cover.png" alt="cards">
+        } 
+        <img (click)="takeCard()" class="top-card" style ="right: 25px" src="assets/img/cards/card_cover.png" alt="cards">
+       
+        @if(game.playedCards.length >=1){
+                <img *ngFor="let card of game.playedCards" class="played-card" style ="right: 25px" src="assets/img/cards/{{card}}.png" alt="cards">
+            
+        } 
+        @if(pickCardAnimation){
+        <img class="pick-card" style ="right: 25px" src="assets/img/cards/{{currentCard}}.png" alt="cards">
+        }
+    </div>
+</div>
+<button mat-fab class="button-add" (click)="openDialog()">
+    <mat-icon>add</mat-icon>
+  </button>
+  <app-game-info class="game-info" [card]="currentCard"></app-game-info>
